@@ -13,6 +13,8 @@ public class GlobalEconomyMain {
     private static final int QUIT = 6;
     private static final int CHANGE_COUNTRY = 7;
 
+    private final String END_LINE = System.lineSeparator();
+
     private Country[] countries;
     private int registeredCountries;
     private Scanner input;
@@ -66,8 +68,7 @@ public class GlobalEconomyMain {
 
         newCountry = new Country(countryName,countryPop,countryGDP);
 
-        System.out.println("");
-        System.out.println("Thank you!");
+        System.out.println(END_LINE+"Thank you!");
         return newCountry;
     }
 
@@ -151,11 +152,10 @@ public class GlobalEconomyMain {
             return;
         }
         System.out.println(" ");
-        System.out.println(" Choose an option below: ");
-        System.out.println(" 1. Change the name of the country. ");
-        System.out.println(" 2. Change the population of the country. ");
-        System.out.println(" 3. Return to the previous menu. ");
-        System.out.println(" ");
+        System.out.println(" Choose an option below: "+END_LINE+
+                " 1. Change the name of the country. "+END_LINE+
+                " 2. Change the population of the country. "+END_LINE+
+                " 3. Return to the previous menu. "+END_LINE);
 
         int option = input.nextInt();
         input.nextLine();
@@ -166,22 +166,19 @@ public class GlobalEconomyMain {
                 System.out.println(" What´s the new name? ");
                 String newName = input.nextLine();
                 foundCountry.setName(newName);
-                editCountry();
                 break;
             case 2:
                 System.out.println(" What´s the new population? ");
                 int newPopulation = input.nextInt();
+                input.nextLine();
                 foundCountry.setPopulation(newPopulation);
-                editCountry();
                 break;
             case 3:
-                System.out.println("uuugh.... fine....");
-                System.out.println("");
+                System.out.println("uuugh.... fine...."+END_LINE);
                 printMenuOptions();
                 break;
             default:
-                System.out.println("Wrong input!");
-                System.out.println("Try again!");
+                System.out.println("Wrong input!"+END_LINE+"Try Again...");
                 editCountry();
                 break;
 
@@ -207,14 +204,11 @@ public class GlobalEconomyMain {
         String countryName = readCountryName();
 
         Country foundCountry = retrieveCountry(countryName);
-
         if (foundCountry != null) {
-            System.out.println(foundCountry);
-            System.out.println("");
+            System.out.println(foundCountry+END_LINE);
         }else{
-            System.out.println(" ");
-            System.out.println("Error: "+countryName+" is not registered.");
-            System.out.println(" ");
+            System.out.println(END_LINE+"Error: "+countryName+" is not registered."+END_LINE);
+
         }
 
     }
