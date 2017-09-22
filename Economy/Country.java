@@ -25,7 +25,7 @@ public class Country {
         String countryTag = END_LINE+this.name + " <"+this.classification+"> "+END_LINE;
         countryTag += "Population: " + this.population+END_LINE;
         countryTag += "GDP: " + new DecimalFormat("#").format(GDP)+ END_LINE;
-        countryTag += this.GDPCapita + " per capita!";
+        countryTag += new DecimalFormat("#").format(this.GDPCapita) + " per capita!";
 
         return countryTag;
 
@@ -71,7 +71,7 @@ public class Country {
         return GDPCapita;
     }
 
-    public void updateValues() {
+    public void updateValues(){
 
         this.GDPCapita = GDP/population;
         this.classification = this.GDPCapita > 1000 ?

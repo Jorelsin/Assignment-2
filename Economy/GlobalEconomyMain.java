@@ -252,7 +252,8 @@ public class GlobalEconomyMain {
         // 4. Remember to not allow changing the GDP to negative values.
     }
 
-    public static void main(String[] args) {
+    public static void main(String[] args)
+    {
         GlobalEconomyMain program = new GlobalEconomyMain();
         program.run();
     }
